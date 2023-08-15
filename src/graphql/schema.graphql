@@ -1,0 +1,35 @@
+type Query {
+  getTasks: [Task]!
+}
+
+type Mutation {
+  saveTask(newTask: InputTask!): StatusResponse
+  deleteTask(id: String!): StatusResponse
+  updateTask(updatedTask: UpdatedTaskInput!): StatusResponse
+}
+
+type Task {
+  task: String!
+  description: String
+  date: String!
+  _id: String!
+}
+
+input InputTask {
+  task: String!
+  description: String
+  date: String!
+  userEmail: String!
+}
+
+input UpdatedTaskInput {
+  task: String!
+  description: String
+  date: String!
+  userEmail: String!
+  _id: String!
+}
+
+type StatusResponse {
+  status: String!
+}
